@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets_2/steve.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts_2/steve.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 30, 2, 30 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.666667, 0.619608, 0.847059, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+material = SubResource( 5 )
+size = Vector3( 15, 1, 15 )
+
+[node name="Level" type="Spatial"]
+
+[node name="Box" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.53604, 3.50015, -0.291663 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Box"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Box"]
+mesh = SubResource( 2 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.880519, 0.474011, 0, -0.474011, 0.880519, 0.428257, 4.05966, 6.3947 )
+fov = 104.935
+
+[node name="Floor" type="StaticBody" parent="."]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -0.000220299, -0.517219, 0.0148792 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor"]
+shape = SubResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor"]
+mesh = SubResource( 4 )
+skeleton = NodePath("../CollisionShape")
+
+[node name="Steve" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0614583, 1.1817, -3.16774 )
+script = ExtResource( 2 )
