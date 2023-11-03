@@ -11,7 +11,13 @@ config_version=4
 [application]
 
 config/name="stevee"
-config/icon="res://scripts_2/icon.png"
+run/main_scene="res://menu.tscn"
+config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1280
+window/size/height=720
 
 [gui]
 
@@ -54,4 +60,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-environment/default_environment="res://scripts_2/default_env.tres"
+environment/default_environment="res://sky.tres"

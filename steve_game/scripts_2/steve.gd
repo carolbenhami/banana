@@ -1,8 +1,8 @@
 extends KinematicBody
 
 var speed = Vector3(0,0,0)
-const VELOCITY = 6
-const ROTSPEED = 7
+const VELOCITY = 8
+const ROTSPEED = 8
 
 func _ready():
 	pass
